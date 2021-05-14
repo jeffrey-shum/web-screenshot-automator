@@ -1,9 +1,8 @@
-import json
 import time
 from selenium import webdriver
 
 urls = []
-with open('urls5.txt', 'r') as f:
+with open('urls.txt', 'r') as f:
     for line in f:
         urls.append(line)
 appState = {
