@@ -18,7 +18,7 @@ appState = {
 }
 
 profile = {'printing.print_preview_sticky_settings.appState': json.dumps(appState),
-           'savefile.default_directory': '/Users/jeffshum/Dev/webscreenshot-frb/webpages/'}
+           'savefile.default_directory': './webpages/'}
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option('prefs', profile)
@@ -26,10 +26,8 @@ chrome_options.add_argument('--kiosk-printing')
 
 for url in urls:
     driver = webdriver.Chrome(options=chrome_options)
-    #driver.implicitly_wait(10)
     driver.get(url)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     time.sleep(5)
-    #driver.execute_script('document.title="{}";'.format('url'));
     driver.execute_script('window.print();')
 driver.quit()
